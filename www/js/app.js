@@ -7,7 +7,7 @@
     .module('afterHours', [
       'ionic',
       'afterHours.services',
-      'afterHours.services.places',
+      'afterHours.services.places'
       // 'afterHours.components.locate',
       // 'afterHours.components.places'
     ])

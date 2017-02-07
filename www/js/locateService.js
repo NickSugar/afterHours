@@ -11,7 +11,6 @@
     vm.locateUser = function () {
       return $http.get('http://ipinfo.io')
         .then(function(location) {
-          // console.log(location.data.loc);
           return location.data.loc;
         })
         .catch(function (error) {

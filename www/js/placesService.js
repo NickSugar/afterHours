@@ -9,14 +9,12 @@
 
     placesService.$inject = ['$http', 'locateService'];
 
-  function placesService($http, locateService) {
+  function placesService($http) {
     var vm = this;
 
-    vm.findPlaces = function (userLatLng) {
-      console.log(userLatLng);
-      return $http.get(placesAPI+'restaurants'+'&location='+userLatLng+'&key='+placesAPIkey)
+    vm.findPlaces = function (userLatLng, type) {
+      return $http.get(placesAPI+type+'&location='+userLatLng+'&key='+placesAPIkey)
         .then(function(locations) {
-          // console.log(locations);
           return locations;
         })
         .catch(function (error) {
@@ -24,20 +22,6 @@
         });
     };
     return vm
-    // locateService.locateUser()
-    //   .then(function (userLocation) {
-    //     console.log(userLocation);
-    //     vm.findPlaces = function () {
-    //       return $http.get(placesAPI+'restaurants'+'&location='+userLocation+'&key='+placesAPIkey)
-    //         .then(function(locations) {
-    //           // console.log(locations);
-    //           return locations;
-    //         })
-    //         .catch(function (error) {
-    //           console.log(error);
-    //         });
-    //     };
-    //   })
   }
 
 })();

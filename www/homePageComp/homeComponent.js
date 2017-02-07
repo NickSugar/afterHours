@@ -8,20 +8,72 @@
         function (locateService, placesService) {
           let vm = this;
 
-          locateService.locateUser()
-            .then(function(userLocation) {
-              vm.userLatLng = userLocation
-              // console.log(vm.userLatLng);
+          vm.categories = {
+            restaurant: [
+              'Restaurants',
+              'ion-android-restaurant',
+              'restaurant'
+            ],
+            bar: [
+              'Bars',
+              'ion-android-bar',
+              'bar'
+            ],
+            liquor_store: [
+              'Liquor Stores',
+              'ion-ios-flask',
+              'liquor_store'
+            ],
+            meal_delivery: [
+              'Meal Delivery',
+              'ion-pizza',
+              'meal_delivery'
+            ],
+            night_club: [
+              'Night Clubs',
+              'ion-ios-cloudy-night',
+              'night_club'
+            ],
+            parking: [
+              'Parking',
+              'ion-model-s',
+              'parking'
+            ],
+            gas_station: [
+              'Gas Station',
+              'ion-android-car',
+              'gas_station'
+            ],
+            store: [
+              'Store',
+              'ion-ios-cart',
+              'store'
+            ],
+            lodging: [
+              'Lodging',
+              'ion-home',
+              'lodging'
+            ],
+            atm: [
+              'ATM',
+              'ion-cash',
+              'atm'
+            ]
+          }
 
-              placesService.findPlaces(vm.userLatLng)
-                .then(function(places) {
-                  vm.placesLatLng = places;
-                  console.log(vm.placesLatLng);
-                });
-            });
+          vm.clickedCategory = function (type) {
 
-
-
+            locateService.locateUser()
+              .then(function(userLocation) {
+                vm.userLatLng = userLocation
+                
+                placesService.findPlaces(vm.userLatLng, type)
+                  .then(function(places) {
+                    vm.placesLatLng = places;
+                    console.log(vm.placesLatLng);
+                  });
+              });
+          };
         }]
     });
 
