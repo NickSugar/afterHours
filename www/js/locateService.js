@@ -1,23 +1,29 @@
 (function () {
 
   angular
-    .module('afterHours.services', [])
-    .service('locateService', locateService);
+    .module('afterHours.factory.locateUser', [])
+    .factory('locateService', locateService);
 
-  locateService.$inject = ['$http'];
 
-  function locateService($http) {
-    var vm = this;
-    vm.locateUser = function () {
-      return $http.get('http://ipinfo.io')
-        .then(function(location) {
-          return location.data.loc;
+  locateService.$inject = ['$http', '$cordovaGeolocation'];
+
+
+  function locateService($http, $cordovaGeolocation) {
+    var service = {};
+    service.locateUser = function () {
+
+      let options = {timeout: 10000, enableHighAccuracy: true};
+
+      return $cordovaGeolocation.getCurrentPosition(options)
+        .then(function(position){
+          // console.log(position);
+          return position;
         })
-        .catch(function (error) {
-          console.log(error);
+        .catch(function(error){
+          console.log("Could not get location");
         });
     };
-    return vm
+    return service
   }
 
 })();

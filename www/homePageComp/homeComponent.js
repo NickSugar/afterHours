@@ -1,12 +1,16 @@
 (function() {
-  'use strict'
+  'use strict';
 
   angular.module('afterHours')
     .component('homePage', {
       templateUrl: './homePageComp/home.html',
-      controller: ['locateService', 'placesService',
-        function (locateService, placesService) {
+      controller: ['locateService', 'placesService', 'mapService', HomeCtrl ]
+    });
+
+  function  HomeCtrl(locateService, placesService, mapService) {
           let vm = this;
+
+          vm.search = '';
 
           vm.categories = {
             restaurant: [
@@ -59,22 +63,21 @@
               'ion-cash',
               'atm'
             ]
-          }
+          };
 
           vm.clickedCategory = function (type) {
 
             locateService.locateUser()
               .then(function(userLocation) {
-                vm.userLatLng = userLocation
-                
+                vm.userLatLng = userLocation;
+
                 placesService.findPlaces(vm.userLatLng, type)
                   .then(function(places) {
-                    vm.placesLatLng = places;
-                    console.log(vm.placesLatLng);
+                    let placesObject = places;
+                    console.log();
+                    mapService.mapInit(vm.userLatLng, placesObject);
                   });
               });
           };
-        }]
-    });
-
+    }
 }());

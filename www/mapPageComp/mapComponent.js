@@ -4,10 +4,10 @@
   angular.module('afterHours')
     .component('mapPage', {
       templateUrl: './mapPageComp/map.html',
-      controller: ['locateService', 'placesService',
-        function (locateService, placesService) {
+      controller: ['locateService', 'placesService','$scope', '$state', '$cordovaGeolocation',
+        function (locateService, placesService, $scope, $state, $cordovaGeolocation) {
           let vm = this;
-          vm.test = 'Map test'
+
         }]
     });
 

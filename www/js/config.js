@@ -5,7 +5,6 @@
   angular
     .module('afterHours')
       .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-        console.log('config test');
         $stateProvider
         .state('home', {
           url: '/',

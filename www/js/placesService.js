@@ -13,8 +13,10 @@
     var vm = this;
 
     vm.findPlaces = function (userLatLng, type) {
-      return $http.get(placesAPI+type+'&location='+userLatLng+'&key='+placesAPIkey)
+      let latLng = userLatLng.coords.latitude.toString() +','+ userLatLng.coords.longitude.toString()
+      return $http.get(placesAPI+type+'&location='+latLng+'&key='+placesAPIkey)
         .then(function(locations) {
+          // console.log(locations);
           return locations;
         })
         .catch(function (error) {

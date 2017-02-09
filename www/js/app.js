@@ -6,10 +6,10 @@
   angular
     .module('afterHours', [
       'ionic',
-      'afterHours.services',
-      'afterHours.services.places'
-      // 'afterHours.components.locate',
-      // 'afterHours.components.places'
+      'afterHours.factory.locateUser',
+      'afterHours.services.places',
+      'afterHours.factory.map',
+      'ngCordova'
     ])
     .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
