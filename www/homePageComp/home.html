@@ -1,11 +1,19 @@
 
 <ion-view title="Title">
 
+
+
   <ion-content>
+
+    <div class="list card">
+
+      <div class="item item-image">
+        <img src="./img/denver.jpg">
+      </div>
+
+    </div>
+
     <div class="list">
-      <a class="item">
-        <br>
-      </a>
 
       <a class="item item-icon-left" ng-repeat="category in $ctrl.categories"
       ng-click="$ctrl.clickedCategory(category[2])" ui-sref="map">

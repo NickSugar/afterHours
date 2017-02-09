@@ -1,4 +1,3 @@
-// Ionic Starter App
 (function() {
 
   'use strict';

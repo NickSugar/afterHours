@@ -42,26 +42,22 @@
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="https://galvanize-cors-proxy.herokuapp.com/http://maps.google.com/maps/api/js?key=AIzaSyA2YYCGw5qx51mzpllS9ApznB57NsGAWLM"></script>
+    <script src="https://galvanize-cors-proxy.herokuapp.com/http://maps.google.com/maps/api/js?key=AIzaSyA2YYCGw5qx51mzpllS9ApznB57NsGAWLM&libraries=places"></script>
   </head>
   <body ng-app="afterHours">
 
-        <div class="bar bar-header bar-dark">
-          <h1 class="title">After Hours</h1>
-          <!-- <h1>{{$ctrl.placesLatLng.statusText}}</h1> -->
-        </div>
-        <!-- <home-page></home-page> -->
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">After Hours</h1>
+    </div>
 
-        <ion-nav-view></ion-nav-view>
+    <ion-nav-view></ion-nav-view>
 
-        <!-- <ui-view></ui-view> -->
-        <!-- <div class="tabs tabs-icon-top tabs-positive hide-on-keyboard-open">
-          <a class="tab-item" ng-click="$ctrl.Keyboard.show()">
-            <i class="icon ion-ios-search"></i>
-            Search
-          </a>
-        </div> -->
-
+    <!-- <div class="tabs tabs-icon-top tabs-positive hide-on-keyboard-open">
+      <a class="tab-item" ng-click="$ctrl.Keyboard.show()">
+        <i class="icon ion-ios-search"></i>
+        Search
+      </a>
+    </div> -->
 
   </body>
 </html>
