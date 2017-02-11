@@ -13,6 +13,11 @@
           vm.search = '';
 
           vm.categories = {
+            restrooms: [
+              'Restrooms',
+              'ion-transgender',
+              'bar&convenience_store&gas_station&store'
+            ],
             restaurant: [
               'Restaurants',
               'ion-android-restaurant',

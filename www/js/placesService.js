@@ -14,7 +14,7 @@
 
     vm.findPlaces = function (userLatLng, type) {
       let latLng = userLatLng.coords.latitude.toString() +','+ userLatLng.coords.longitude.toString()
-      return $http.get(placesAPI+type+'&location='+latLng+'&key='+placesAPIkey)
+      return $http.get(placesAPI+type+'&location='+latLng+'&opennow'+'&key='+placesAPIkey)
         .then(function(locations) {
           // console.log(locations);
           return locations;

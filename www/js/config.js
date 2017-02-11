@@ -14,6 +14,10 @@
           url: '/map',
           template: '<map-page></map-page>'
         })
+        .state('info', {
+          url: '/info',
+          template: '<info-page></info-page>'
+        })
         $urlRouterProvider.otherwise('/')
         $locationProvider.html5Mode(true)
     });
